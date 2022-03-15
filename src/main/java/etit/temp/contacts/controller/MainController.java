@@ -1,8 +1,9 @@
 package etit.temp.contacts.controller;
 
-import etit.temp.contacts.DataProvider;
+import etit.temp.contacts.dal.DataService;
 import etit.temp.contacts.models.ContactModel;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,15 +21,23 @@ public class MainController {
                                                           "add new", "/add",
                                                           "contacts", "/contacts");
 
+  private final DataService dataService;
+
   @GetMapping("/contacts")
   public ModelAndView getContacts() {
 
     var mav = getMavWithPaths("contacts");
 
     mav.addObject("title", "Contacts");
-    mav.addObject("models", DataProvider.getContacts());
+    mav.addObject("models", dataService.getContacts());
 
     return mav;
+  }
+
+  @Autowired
+  public MainController(DataService dataService) {
+
+    this.dataService = dataService;
   }
 
   @GetMapping("/")
@@ -66,7 +75,7 @@ public class MainController {
     mav.addObject("title", "add new Contact");
     mav.addObject("contact", new ContactModel());
 
-    DataProvider.write(contact);
+    dataService.write(contact);
     return addNewContact();
   }
 
@@ -76,7 +85,7 @@ public class MainController {
 
     var mav = getMavWithPaths("details");
 
-    var models = DataProvider.getContacts();
+    var models = dataService.getContacts();
 
     mav.setViewName("details");
     mav.addObject("model", models.get(index));

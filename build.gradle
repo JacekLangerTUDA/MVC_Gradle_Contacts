@@ -1,8 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.4'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
-	id 'org.springframework.experimental.aot' version '0.11.3'
+    id 'org.springframework.boot' version '2.6.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'org.springframework.experimental.aot' version '0.11.3'
 }
 
 group = 'etit.temp'
@@ -10,37 +10,47 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 repositories {
-	maven { url 'https://repo.spring.io/release' }
-	mavenCentral()
+    maven { url 'https://repo.spring.io/release' }
+    mavenCentral()
 }
 
 ext {
-	set('testcontainersVersion', "1.16.2")
+    set('testcontainersVersion', "1.16.2")
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-batch'
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.batch:spring-batch-test'
-	testImplementation 'org.testcontainers:junit-jupiter'
-	testImplementation 'org.testcontainers:mssqlserver'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    implementation 'org.springframework.boot:spring-boot-starter-batch'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+
+    runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.batch:spring-batch-test'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.testcontainers:mssqlserver'
+    testImplementation "org.testcontainers:testcontainers:1.16.3"
+    testImplementation "org.testcontainers:junit-jupiter:1.16.3"
+
+    implementation platform('org.testcontainers:testcontainers-bom:1.16.3') //import bom
+    testImplementation('org.testcontainers:mysql')
+    //no version specifiedtestImplementation "org.junit.jupiter:junit-jupiter:5.8.1"
 }
 
 dependencyManagement {
-	imports {
-		mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
-	}
+    imports {
+        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+    }
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 
 tasks.named('bootBuildImage') {
-	builder = 'paketobuildpacks/builder:tiny'
-	environment = ['BP_NATIVE_IMAGE': 'true']
+    builder = 'paketobuildpacks/builder:tiny'
+    environment = ['BP_NATIVE_IMAGE': 'true']
 }

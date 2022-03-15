@@ -3,7 +3,7 @@ package etit.temp.contacts.models;
 /**
  * Contact Model Class.
  */
-public class ContactModel {
+public class ContactModel extends ModelBase {
 
   private String name;
   private String lastname;
@@ -11,7 +11,6 @@ public class ContactModel {
   private String mail;
   private String title;
   private String gender;
-  private ContactModel[] friends;
 
   public String getTitle() {
 
@@ -23,15 +22,6 @@ public class ContactModel {
     this.title = value;
   }
 
-  public ContactModel[] getFriends() {
-
-    return friends;
-  }
-
-  public void setFriends(ContactModel[] value) {
-
-    this.friends = value;
-  }
 
   public String getName() {
 
@@ -75,7 +65,7 @@ public class ContactModel {
 
   public ContactModel() {
 
-    this(Titles.NONE, Gender.UNDEFINED, "", "", "", "", null);
+    this(Titles.NONE, Gender.UNDEFINED, "", "", "", "");
   }
 
   /**
@@ -85,11 +75,11 @@ public class ContactModel {
    * @param lastName  last name
    * @param phone     the phone name
    */
-  public ContactModel(Titles title, Gender gender, String firstName, String lastName, String phone,
-                      ContactModel... friends) {
+  public ContactModel(Titles title, Gender gender, String firstName, String lastName,
+                      String phone) {
 
-    this(title, gender, firstName, lastName, firstName + "." + lastName + "@tu-darmstadt.de", phone,
-         friends);
+    this(title, gender, firstName, lastName, firstName + "." + lastName + "@tu-darmstadt.de",
+         phone);
   }
 
   /**
@@ -99,16 +89,19 @@ public class ContactModel {
    * @param lastname last name
    * @param phone    phone number
    * @param mail     email adress
-   * @param friends  list of friends
    */
-  public ContactModel(Titles title, Gender gender, String name, String lastname, String phone,
-                      String mail, ContactModel[] friends) {
+  public ContactModel(Titles title,
+                      Gender gender,
+                      String name,
+                      String lastname,
+                      String phone,
+                      String mail) {
 
+    super();
     this.name = name;
     this.lastname = lastname;
     this.phone = phone;
     this.mail = mail;
-    this.friends = friends;
     this.gender = gender.getGender();
     this.title = title.getTitle();
   }
