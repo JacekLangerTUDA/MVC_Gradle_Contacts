@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div>
+    <div class="details-container">
+        <form id="details-form" method="post" th:action="@{/contacts/details/ }" th:object="${model}">
+            <div class="form-container" id="details-stack">
+                <input class="display-Input" name="title" th:value="${model.title}"/>
+                <input class="display-Input" name="name" th:value="${model.name}"/>
+                <input class="display-Input" name="lastname" th:value="${model.lastname}"/>
+                <input class="display-Input" name="mail" th:value="${model.mail}"/>
+                <input class="display-Input" name="phone" th:value="${model.phone}"/>
+            </div>
+        </form>
+        <div>
+            <div>
+                <img alt="" class="prifile-pic" src="">
+            </div>
+        </div>
+        <article>
+            <textarea form="details-form" name="details" placeholder="enter details text"></textarea>
+        </article>
+        <input id="save-btn" type="submit" value="save changes">
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

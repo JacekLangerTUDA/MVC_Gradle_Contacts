@@ -1,0 +1,15 @@
+<div class="contact" th:each="model : ${models}" th:fragment="contact">
+    <table>
+        <a class="name-button" th:href="@{/contacts/details/{index}(index = ${modelStat.index}) }"
+           th:text="| *{model.title} *{model.name} *{model.lastname}|"/>
+        <tr>
+            <td>
+                <p th:text="*{model.mail}">mail</p>
+            </td>
+            <td>
+                <p th:text="*{model.phone}">012345798</p>
+            </td>
+        </tr>
+    </table>
+    <span class="shadow-text">inspect</span>
+</div>

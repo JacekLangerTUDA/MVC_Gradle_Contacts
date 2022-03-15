@@ -1,0 +1,28 @@
+<!Doctype html>
+<html lang="de">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="form-container">
+    <form action="#" method="post" th:action="@{/contacts/add}" th:object="${contact}">
+        <label for="inp-name">Name</label>
+        <input id="inp-name" name="name" required th:field="*{name}" type="text">
+        <br>
+        <label for="inp-lastname">Lastname</label>
+        <input id="inp-lastname" name="lastname" required th:field="*{lastname}" type="text">
+        <br>
+        <label for="inp-phone">Phone</label>
+        <input id="inp-phone" name="phone" th:field="*{phone}" type="text">
+        <br>
+        <label for="inp-mail">Mail</label>
+        <input id="inp-mail" name="mail" th:field="*{mail}" type="text">
+        <br>
+        <input class="action-button" id="submit" name="submit" type="submit" value="Submit">
+        <input class="action-button" id="reset" name="reset" type="reset" value="Reset">
+    </form>
+</div>
+<br>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

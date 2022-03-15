@@ -1,0 +1,54 @@
+<!Doctype html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <link rel="stylesheet" href="/static/styles/main.css">
+</head>
+<body>
+<!--th:replace = path/ :: class ----- replaces the tag with the template-->
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class="main-content">
+    <article>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam assumenda autem consequuntur distinctio
+            dolorem doloremque dolores eius exercitationem expedita fugiat illo ipsam iste laborum odio officia
+            praesentium, quasi qui quidem reiciendis reprehenderit repudiandae sapiente sequi sunt tempore ut.
+            Assumenda beatae consequuntur deleniti ducimus enim error eveniet, laboriosam libero minima
+            necessitatibus obcaecati pariatur perferendis qui repellendus reprehenderit sed vitae voluptate! Ab,
+            adipisci aperiam asperiores autem dolorem ducimus explicabo fugit iste laborum molestiae nemo nobis
+            officia optio quibusdam sit tempora, ut veritatis voluptate voluptates voluptatibus? Aut commodi
+            explicabo iusto officiis repellat? Blanditiis cum dignissimos dolores error neque sint tempore velit
+            vitae voluptatem.</p>
+    </article>
+    <div class="column-text">
+        <h2 class="column-text-header">my columns header</h2>
+        <div class="column-text-columns">
+
+        <span class="column-text-span-col">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Animi beatae dolores exercitationem iste magni obcaecati praesentium provident sunt vel voluptate?
+                Ad dolorem doloremque ducimus, molestiae mollitia nesciunt perferendis quas voluptatum!</span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, labore, temporibus? Accusantium animi
+            consequuntur eligendi fugit iure mollitia nam nostrum quidem ullam ut! At atque facilis nam natus officiis
+            perspiciatis quam, quisquam reprehenderit. A accusantium ad aperiam aut, autem consectetur consequatur
+            eligendi explicabo hic id illum, in ipsam labore magni maiores maxime molestias natus nihil numquam odit
+            officia officiis perspiciatis praesentium, quas quis quo recusandae rem repellat reprehenderit saepe
+            sapiente sed similique soluta suscipit temporibus voluptatem voluptatibus. Aperiam at culpa cumque deleniti
+            dolor dolore esse et eum fugit hic ipsam ipsum nam natus necessitatibus officia perspiciatis porro, possimus
+            quasi recusandae reiciendis rem repellendus rerum saepe sed tempora ullam vitae? Ad debitis dolores
+            laboriosam repudiandae! Eius et, inventore ipsam iste magnam neque nihil officia repudiandae voluptas! Alias
+            asperiores atque beatae cum cumque debitis earum eum eveniet fugit harum iste laboriosam maiores modi
+            molestiae nemo nihil, possimus quaerat quibusdam ratione sed suscipit?</p>
+        </div>
+    </div>
+    <article>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam assumenda autem consequuntur distinctio
+            dolorem doloremque dolores eius exercitationem expedita fugiat illo ipsam iste laborum odio officia
+            praesentium, quasi qui quidem reiciendis reprehenderit repudiandae sapiente sequi sunt tempore ut.
+            Assumenda beatae consequuntur deleniti ducimus enim error eveniet, laboriosam libero minima
+            necessitatibus obcaecati pariatur perferendis qui repellendus reprehenderit sed vitae voluptate! Ab,
+            adipisci aperiam asperiores autem dolorem ducimus explicabo fugit iste laborum molestiae nemo nobis
+            officia optio quibusdam sit tempora, ut veritatis voluptate voluptates voluptatibus? Aut commodi
+            explicabo iusto officiis repellat? Blanditiis cum dignissimos dolores error neque sint tempore velit
+            vitae voluptatem.</p>
+    </article>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</html>
