@@ -1,5 +1,7 @@
 package etit.temp.contacts.dal;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import etit.temp.contacts.models.ContactModel;
 import etit.temp.contacts.models.Gender;
 import etit.temp.contacts.models.Titles;
@@ -38,8 +40,11 @@ class DataServiceTest {
   @Test
   void write() {
 
+    var existing = service.getContacts();
     service.write(new ContactModel(Titles.NONE, Gender.MALE, "Jacek", "Langer", "123456789"));
+    var newData = service.getContacts();
 
+    assertTrue(existing.size() < newData.size());
   }
 
 }

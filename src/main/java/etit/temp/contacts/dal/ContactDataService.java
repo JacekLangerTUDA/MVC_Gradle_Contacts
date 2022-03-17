@@ -3,6 +3,7 @@ package etit.temp.contacts.dal;
 import etit.temp.contacts.models.ContactModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -22,7 +23,7 @@ public class ContactDataService extends DbConnectionService<ContactModel> {
   @Override
   public List<ContactModel> parseData(ResultSet data) throws SQLException {
 
-    List<ContactModel> res = null;
+    List<ContactModel> res = new ArrayList<>();
     while (data.next()) {
 
       Map<String, String> values = new ConcurrentHashMap<>();

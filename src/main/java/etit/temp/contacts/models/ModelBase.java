@@ -1,18 +1,16 @@
 package etit.temp.contacts.models;
 
-import java.rmi.server.UID;
-
 public class ModelBase {
 
 
-  private final UID id;
+  private final int id;
 
   public ModelBase() {
 
-    this.id = new UID();
+    id = 0;
   }
 
-  public ModelBase(UID id) {
+  public ModelBase(int id) {
 
     this.id = id;
   }
