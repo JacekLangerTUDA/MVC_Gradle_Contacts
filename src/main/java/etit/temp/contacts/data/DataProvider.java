@@ -1,4 +1,4 @@
-package etit.temp.contacts;
+package etit.temp.contacts.data;
 
 import etit.temp.contacts.models.ContactModel;
 import etit.temp.contacts.models.Gender;
@@ -9,7 +9,7 @@ public class DataProvider {
 
   public static List<ContactModel> getContacts() {
 
-    // TODO(...): connect to api either implement your custom code here.
+    // TODO(...): implement your custom code here.
 
     return List.of(
         new ContactModel(Titles.PROF, Gender.MALE, "Randy", "Random", "321654987", null),
@@ -22,7 +22,7 @@ public class DataProvider {
 
   public static void write(ContactModel contact) {
 
-    // TODO(...): connect to api, implement your custom code here.
+    // TODO(...): implement your custom code here.
   }
 
 }

@@ -1,6 +1,6 @@
 package etit.temp.contacts.controller;
 
-import etit.temp.contacts.DataProvider;
+import etit.temp.contacts.data.DataProvider;
 import etit.temp.contacts.models.ContactModel;
 import java.util.Map;
 import org.springframework.stereotype.Controller;
