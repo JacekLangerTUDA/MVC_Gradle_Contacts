@@ -1,0 +1,16 @@
+services:
+  db:
+    # build Anweisung falls kein image vorhanden ist aber auf dem system vorhanden ist.
+    build: C:\Users\langer\Desktop\HRZ\Präsentationen\docker\live demo\ContactsDockerDb
+    image: contacts-db
+    ports:
+      - 1433:1433 #might able to change the port later to get several instances running at once and change the port during test
+
+      # the volume mount for the database to provide persitant data
+
+      # uncomment this to set a mount
+    volumes:
+      - simple-mssql-data:/var/opt/mssql/data
+# we need to define the volumes globaly. we might as well do it first.
+volumes:
+  simple-mssql-data:
