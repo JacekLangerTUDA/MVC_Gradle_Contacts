@@ -1,6 +1,6 @@
 services:
   db:
+    # build Anweisung falls kein image vorhanden ist aber auf dem system vorhanden ist.
     image: contacts-db
     ports:
-      - 1433:1433
-      # this is the port mssql server listens to. this needs to be changed in mssql server.
+      - 1433:1433 #might able to change the port later to get several instances running at once and change the port during test

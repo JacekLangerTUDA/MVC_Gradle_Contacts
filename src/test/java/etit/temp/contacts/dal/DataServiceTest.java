@@ -2,7 +2,6 @@ package etit.temp.contacts.dal;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import etit.temp.contacts.ComposeUtils;
 import etit.temp.contacts.models.ContactModel;
 import etit.temp.contacts.models.Gender;
 import etit.temp.contacts.models.Titles;
