@@ -46,6 +46,26 @@ public class ContactDataService extends DbConnectionService<ContactModel> {
 
   public void saveData(ContactModel contact) {
 
+    try (var con = dataSource.getConnection()) {
+
+
+      String sql =
+          "INSERT INTO contacts (Firstname,Lastname,Gender,Title,Phonenumber,Mail) " +
+              "VALUES (?,?,?,?,?,?)";
+
+      var stmt = con.prepareStatement(sql);
+      stmt.setObject(1, contact.getName());
+      stmt.setObject(2, contact.getLastname());
+      stmt.setObject(3, contact.getGender());
+      stmt.setObject(4, contact.getTitle());
+      stmt.setObject(5, contact.getPhone());
+      stmt.setObject(6, contact.getMail());
+
+      stmt.execute();
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
 
   }
 

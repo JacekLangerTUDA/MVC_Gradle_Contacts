@@ -8,7 +8,7 @@ public enum Gender {
 
   private final String gender;
 
-  public String getGender() {
+  public String getValue() {
 
     return gender;
   }

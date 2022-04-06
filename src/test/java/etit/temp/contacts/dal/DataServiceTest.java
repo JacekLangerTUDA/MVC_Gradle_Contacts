@@ -2,31 +2,27 @@ package etit.temp.contacts.dal;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import etit.temp.contacts.ComposeUtils;
 import etit.temp.contacts.models.ContactModel;
 import etit.temp.contacts.models.Gender;
 import etit.temp.contacts.models.Titles;
-import java.io.File;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testcontainers.containers.DockerComposeContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.utility.DockerImageName;
 
 @SpringBootTest
 @Testcontainers
 class DataServiceTest {
 
-  private static final DockerImageName contactsdb = DockerImageName.parse("contactsdb");
-
+  /**
+   * The database container from the compose file.
+   */
   @Container
-  DockerComposeContainer container = new DockerComposeContainer(new File("C:\\Users\\langer" +
-                                                                             "\\Desktop" +
-                                                                             "\\Projects" +
-                                                                             "\\ContactsDockerDb" +
-                                                                             "\\docker-compose" +
-                                                                             ".yml"));
+  public static DockerComposeContainer<?> ENV = new DockerComposeContainer<>(
+      ComposeUtils.getComposeFile());
 
   @Autowired
   DataService service;

@@ -12,6 +12,16 @@ public class ContactModel extends ModelBase {
   private String title;
   private String gender;
 
+  public String getGender() {
+
+    return gender;
+  }
+
+  public void setGender(String gender) {
+
+    this.gender = gender;
+  }
+
   public String getTitle() {
 
     return title;
@@ -102,7 +112,7 @@ public class ContactModel extends ModelBase {
     this.lastname = lastname;
     this.phone = phone;
     this.mail = mail;
-    this.gender = gender.getGender();
+    this.gender = gender.getValue();
     this.title = title.getTitle();
   }
 

@@ -12,9 +12,16 @@ import org.springframework.stereotype.Service;
 @Service
 public abstract class DbConnectionService<T extends ModelBase> {
 
+  /**
+   * The data source.
+   */
+  protected final DataSource dataSource;
 
-  private final DataSource dataSource;
-
+  /**
+   * Creates a new DbConnectionService.
+   *
+   * @param dataSource
+   */
   @Autowired
   public DbConnectionService(DataSource dataSource) {
 
