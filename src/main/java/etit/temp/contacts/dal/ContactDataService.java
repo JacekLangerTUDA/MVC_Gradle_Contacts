@@ -1,5 +1,6 @@
 package etit.temp.contacts.dal;
 
+import etit.temp.contacts.controller.MainController;
 import etit.temp.contacts.models.ContactModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,16 +9,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.sql.DataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ContactDataService extends DbConnectionService<ContactModel> {
 
+  private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
+
   @Autowired
   ContactDataService(DataSource dataSource) {
 
     super(dataSource);
+    try {
+      LOGGER.info(String.valueOf(dataSource.getConnection()));
+    } catch (SQLException e) {
+      LOGGER.error(e.getMessage());
+    }
   }
 
   @Override

@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
+
   private final static Map<String, String> paths = Map.of("home", "/",
                                                           "index", "/home",
                                                           "add new", "/add",
